@@ -1,0 +1,154 @@
+RU001
+Tran Nguyen Quoc Bao
+0987654321
+Nam
+04318254809
+10/06/2004
+dstw106204
+Gold
+quocbao106204@gmail.com
+RU002
+Le Manh Hung
+0901111250
+Nam
+049204001001
+11/02/2006
+lmhfifa123
+Silver
+manhhungle@gmail.com
+GU001
+Le Thi Thanh
+0801123021
+Nu
+047012001234
+21/03/2004
+35000
+23/04/2023
+RU003
+Nguyen Thi Hoa
+0777555123
+Nu
+049203102321
+01/01/2005
+springflw@123
+Platinum
+hoant@gmail.com
+GU002
+Nguyen Quoc Long
+0901111254
+Nam
+049201231123
+31/01/2001
+25000
+01/05/2023
+GU003
+Tran Thi Thuy
+0976543210
+Nu
+047512009876
+15/03/1998
+20000
+01/09/2023
+GU004
+Nguyen Thi Nga
+0909876543
+Nu
+042398765432
+05/11/2002
+15000
+01/12/2023
+GU005
+Le Thi Thu
+0888777666
+Nu
+043219876543
+20/09/2001
+18000
+01/10/2023
+GU006
+Pham Thi My
+0966333222
+Nu
+042398765432
+12/07/1999
+22000
+01/11/2023
+RU009
+Nguyen Van An
+0987654323
+Nam
+045678912345
+12/05/1990
+an123456
+Gold
+an.nguyen@gmail.com
+GU008
+Tran Minh Duc
+0901234567
+Nam
+049876543210
+25/08/1985
+30000
+01/07/2023
+RU010
+Le Hoang Long
+0976543210
+Nam
+048765432109
+03/11/1995
+longle123
+Diamond
+longlehoang@gmail.com
+GU007
+Nguyen Thi Ngoc
+0911222333
+Nu
+049876543210
+25/05/2000
+19000
+01/08/2023
+RU004
+Nguyen Thi Mai
+0987654322
+Nu
+04318254810
+20/09/2003
+springflower
+Gold
+mainguyen123@gmail.com
+RU005
+Tran Thi Anh
+0901111251
+Nu
+049204001002
+15/07/2002
+anhtatca123
+Silver
+anhtrantatca@gmail.com
+RU006
+Pham Thi Lan
+0801123022
+Nu
+047012001235
+05/12/2000
+winterlove
+Bronze
+lanphamwinter@gmail.com
+RU007
+Nguyen Thi Hien
+0777555124
+Nu
+049203102322
+30/03/2001
+hiennguyen123
+Platinum
+hiennguyenspring@gmail.com
+RU008
+Le Thi Huong
+0901111255
+Nu
+049201231124
+28/08/2003
+huongle2003
+Diamond
+huonglediamond@gmail.com

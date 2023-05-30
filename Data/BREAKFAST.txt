@@ -1,0 +1,114 @@
+F001
+Banh Mi
+DongTam Bakery
+10000
+M
+15
+F001
+Banh Mi
+DongTam Bakery
+10000
+L
+12
+F001
+Banh Mi
+DongTam Bakery
+10000
+XL
+20
+F002
+Pho Bo
+ABC Nooble
+20000
+L
+20
+F002
+Pho Bo
+HaNoi Nooble
+20000
+XL
+15
+D001
+Cafe
+TrungNguyen Cofffe
+10000
+L
+11
+F003
+My Tom Trung
+ABC Nooble
+15000
+M
+20
+D002
+String Dau
+Number01
+10000
+L
+8
+D002
+String Dau
+Number01
+10000
+M
+10
+F004
+Banh Xeo
+Quan Xeo Sai Gon
+25000
+L
+10
+D003
+Ca phe sua da
+Phuc Long Coffee
+15000
+M
+15
+F005
+Goi cuon
+Nha hang Pho Nuong
+18000
+M
+12
+D004
+Nuoc chanh
+Quan Bia Hoi
+8000
+S
+20
+F006
+Bun cha
+Bun Cha Huong Lien
+30000
+XL
+8
+D005
+Sinh to xoai
+Quan Oi Xoai
+20000
+L
+10
+F007
+Banh beo
+Banh Beo Hong Mai
+12000
+S
+15
+D006
+Soda chanh day
+Quan Kem My Linh
+18000
+M
+10
+F008
+Com tam
+Quan Com Tam 234
+35000
+L
+10
+D007
+Tra dao
+Tra Sua Gong Cha
+25000
+M
+12

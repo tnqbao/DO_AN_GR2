@@ -1,0 +1,90 @@
+LPC003
+Razer Blade 15 Base Model
+Laptop
+Window11
+Razer
+1
+0
+0
+10000
+10000
+TPC004
+DragonD4
+TablePC
+Window10
+8000
+AMD Ryzen 5
+Nvidia GeForce GTX 1050
+5
+LPC005
+Predator Helios 300
+Laptop
+Window10
+Predator
+0
+1
+1
+11000
+15000
+TPC002
+DragonB2
+TablePC
+Window11
+8500
+AMD Ryzen 7
+Nvidia GeForce GTX 1660
+4
+TPC003
+CycbogC3
+TablePC
+Linux
+9000
+Intel Core i7
+Nvidia GeForce GTX 1080
+3
+LPC004
+Nitro 5 AN515-55-52ZA
+Laptop
+Window11
+Acer
+1
+1
+1
+10000
+8000
+LPC001
+Swift 5
+Laptop
+Window10
+Acer
+1
+1
+1
+8000
+7000
+TPC001
+CycbogA1
+TablePC
+Window10
+9500
+Intel Core i5
+Nvidia GeForce GTX 1060
+5
+TPC005
+CycbogE5
+TablePC
+Window11
+9700
+Intel Core i7
+Nvidia GeForce GTX 1070
+4
+LPC002
+MacBook Pro M1
+Laptop
+macOS
+Apple
+1
+1
+1
+10000
+12000

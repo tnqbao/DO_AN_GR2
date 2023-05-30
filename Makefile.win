@@ -1,0 +1,50 @@
+# Project: QUAN_LY_TIEM_NET
+# Makefile created by Dev-C++ 5.3.0.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o $(RES)
+LINKOBJ  = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o $(RES)
+LIBS     = -L"" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = QUAN_LY_TIEM_NET.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Person.o: Person.cpp
+	$(CPP) -c Person.cpp -o Person.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Function.o: Function.cpp
+	$(CPP) -c Function.cpp -o Function.o $(CXXFLAGS)
+
+Staff.o: Staff.cpp
+	$(CPP) -c Staff.cpp -o Staff.o $(CXXFLAGS)
+
+User.o: User.cpp
+	$(CPP) -c User.cpp -o User.o $(CXXFLAGS)
+
+Pc.o: Pc.cpp
+	$(CPP) -c Pc.cpp -o Pc.o $(CXXFLAGS)
+
+Breakfast.o: Breakfast.cpp
+	$(CPP) -c Breakfast.cpp -o Breakfast.o $(CXXFLAGS)
+
+Menu.o: Menu.cpp
+	$(CPP) -c Menu.cpp -o Menu.o $(CXXFLAGS)
