@@ -55,14 +55,7 @@ int SortDay(string date1,string date2)
     return 0;
 }
 
-// template<class T>
-// void Sort(vector<T> a, void (T::*Function)())
-// {
-//     for (int i = 0; i<a.size();i++)
-//     {
-//         if ((a[i].*Function)()>a[i])
-//     }
-// }
+
 void title_PC()
 {
     std::cout << std::endl<<std::setfill(' ') << std::left <<"|" << std::setw(7) <<  "ID"<<" |"
@@ -80,4 +73,9 @@ void title_Breakfast()
     << std::setw(7) << "Size"<<" |"
     << std::setw(7) << "Quantity"<<" |"
     << std::setw(12) << "Price" << " |";
+}
+
+void choose_option()
+{
+    cout<<"\n(1.Continue// 2.Back // ELSE.MainMenu):  ";
 }

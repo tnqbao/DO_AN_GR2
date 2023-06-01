@@ -14,6 +14,7 @@ template<class T>
 void Sort(vector<T> a, void (*Function)());
 void title_PC();
 void title_Breakfast();
+void choose_option();
 #endif  
 
 

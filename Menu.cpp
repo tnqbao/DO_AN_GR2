@@ -1,7 +1,8 @@
 #include "Menu.h"
 
 void MainMenu()
-{   while(1)
+{   system("cls");
+    while(1)
     {
         system("cls");
         vector<string> arr;
@@ -59,13 +60,14 @@ void MainMenu()
                     };
                 arr = {"ID","NAME","TELL","SEX","CCCD","BIRTHDAY","PERMIT","SALARY"};
                 ManagementMenu(list,"STAFF",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
-                cout<<"\nBan muon tiep tuc lam viec khonng(1-YES/2-NO)? ";
+                choose_option();
                 cin>>choose; cin.ignore();
                 if (choose==1)
                 {
-                    ManagementMenu(list,"STAFF",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
                     system("cls");
+                    ManagementMenu(list,"STAFF",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
                 }
+                else return;
                 break;
             }
             case 2:
@@ -104,13 +106,14 @@ void MainMenu()
                     };
                 arr = {"ID","NAME","TELL","SEX","CCCD","BIRTHDAY","USERNAME","RANK"};
                 ManagementMenu(list,"USER",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
-                cout<<"\nBan muon tiep tuc lam viec khonng(1-YES/2-NO)? ";
+                choose_option();
                 cin>>choose; cin.ignore();
                 if (choose==1)
-                {
+                {   
+                    system("cls"); 
                     ManagementMenu(list,"USER",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
-                    system("cls");
                 }
+                else return;
                 break;
             }
             case 3:
@@ -140,13 +143,13 @@ void MainMenu()
                 };
                 arr = {"ID","NAME","MODEL","OPERATINGSYSTEM","PRICE"};
                 ManagementMenu(list,"PC",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
-                cout<<"\nBan muon tiep tuc lam viec khonng(1-YES/2-NO)? ";
+                choose_option();
                 cin>>choose; cin.ignore();
                 if (choose==1)  
-                {
+                {   system("cls");
                     ManagementMenu(list,"PC",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
-                    system("cls");
                 }
+                else return;
                 break;
             }
             case 4:
@@ -176,26 +179,19 @@ void MainMenu()
                     };
                 arr = {"ID","NAME","BRAND","SIZE","PRICE"};
                 ManagementMenu(list,"BREAKFAST",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
-                cout<<"\nBan muon tiep tuc lam viec khonng(1-YES/2-NO)? ";
+                choose_option;
                 cin>>choose; cin.ignore();
                 if (choose==1)
-                {
+                {   system("cls");
                     ManagementMenu(list,"BREAKFAST",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
-                    system("cls");
                 }
+                else return;
                 break;
             }
         default:
             break;
         }
-        cout<<"\nBan muon tro lai man hinh chinh khonng(1-YES/2-NO)? ";
-                cin>>choose; cin.ignore();
-                if (choose==1)
-                {
-                    MainMenu();
-                    system("cls");
-                }
-        return;
+        break;
     }
     return;
 }
@@ -220,6 +216,9 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
             list.GeneralViewList();
             cout<<endl;
             system("pause"); 
+            cout<<"\n(1.Back // ELSE.MAINMENU):  "; cin>>chon; cin.ignore();  
+            if(chon==1) ManagementMenu(list,file,arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
+            else MainMenu(); 
             break;
         case 2:
             system("cls");
@@ -229,6 +228,9 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
             cout<<"\nBan chac chan muon xoa chu(1-Co/2-Khong)? "; 
             cin>>chon; cin.ignore();
             if (chon==1) list.exportList(file+".txt");
+            cout<<"\n(1.Back // ELSE.MAINMENU)"; cin>>chon; cin.ignore();  
+            if(chon==1) ManagementMenu(list,file,arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
+            else MainMenu(); 
             break;
         case 3:
             system("cls");
@@ -238,6 +240,9 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
             cout<<"\nBan chac chan muon them chu(1-Co/2-Khong)? "; 
             cin>>chon; cin.ignore();
             if (chon==1) list.exportList(file+".txt");
+            cout<<"\n(1.Back // ELSE.MAINMENU)";cin>>chon; cin.ignore();  
+            if(chon==1) ManagementMenu(list,file,arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
+            else MainMenu(); 
             break;
         case 4:
             system("cls");
@@ -273,9 +278,9 @@ void SortMenu(T& list, string file, std::vector<string> arr ,void(T::*FunctionSo
     list.GeneralViewList();
     cout<<endl;
     system("pause");
-    cout<<"\nBan muon tiep tuc sap xep(1-YES/2-NO)?: "; int chon; cin>>chon; cin.ignore();  
+    choose_option(); int chon; cin>>chon; cin.ignore();  
     if(chon==1) SortMenu(list,file,arr,FunctionSortArr);
-    return; 
+    else MainMenu(); 
 }
 template<class T>
 void FindMenu(T& list, string file, std::vector<string> arr,void (T::*FunctionFindArr[])())
@@ -287,9 +292,9 @@ void FindMenu(T& list, string file, std::vector<string> arr,void (T::*FunctionFi
     (list.*FunctionFindArr[choose-1])();
     cout<<endl;
     system("pause");
-    cout<<"\nBan muon tiep tuc tim kiem(1-YES/2-NO)?: "; int chon; cin>>chon; cin.ignore();  
+    choose_option(); int chon; cin>>chon; cin.ignore();  
     if(chon==1) FindMenu(list,file,arr,FunctionFindArr);
-    return;  
+    else MainMenu();
 }
 template<class T>
 void FilterMenu(T& list, string file, std::vector<string> arr ,void (T::*FunctionFilterArr[])())
@@ -301,9 +306,9 @@ void FilterMenu(T& list, string file, std::vector<string> arr ,void (T::*Functio
     (list.*FunctionFilterArr[choose-1])();
     cout<<endl;
     system("pause");
-    cout<<"\nBan muon tiep tuc loc(1-YES/2-NO)?: "; int chon; cin>>chon; cin.ignore();  
+    choose_option(); int chon; cin>>chon; cin.ignore();  
     if(chon==1) FilterMenu(list,file,arr,FunctionFilterArr);
-    return;  
+    else MainMenu();
 }
 
 
