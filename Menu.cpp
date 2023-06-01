@@ -407,7 +407,7 @@ void SigninMenu()
 {   cout<<"XIN MOI DANG NHAP!";
     string username; string pass;
     cout<<"\nUSERNAME: "; getline(cin,username);
-    cout<<"PASSWORK:" ; getline(cin,pass);
+    cout<<"PASSWORK:" ; getline(cin,pass); 
     while(login(username,pass)==false)
     {system("cls");
      cout<<"KHONG HOP LE, MOI NHAP LAI!";
