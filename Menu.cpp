@@ -67,7 +67,7 @@ void MainMenu()
                     system("cls");
                     ManagementMenu(list,"STAFF",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
                 }
-                else return;
+                else MainMenu();
                 break;
             }
             case 2:
@@ -113,7 +113,7 @@ void MainMenu()
                     system("cls"); 
                     ManagementMenu(list,"USER",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
                 }
-                else return;
+                else MainMenu();
                 break;
             }
             case 3:
@@ -149,7 +149,7 @@ void MainMenu()
                 {   system("cls");
                     ManagementMenu(list,"PC",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
                 }
-                else return;
+                else MainMenu();
                 break;
             }
             case 4:
@@ -185,7 +185,7 @@ void MainMenu()
                 {   system("cls");
                     ManagementMenu(list,"BREAKFAST",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr); 
                 }
-                else return;
+                else MainMenu();
                 break;
             }
         default:
