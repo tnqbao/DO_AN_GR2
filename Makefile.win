@@ -1,23 +1,22 @@
 # Project: QUAN_LY_TIEM_NET
-# Makefile created by Dev-C++ 5.3.0.3
+# Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o $(RES)
-LINKOBJ  = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o $(RES)
-LIBS     = -L"" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
-INCS     = -I"" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
-CXXINCS  = -I"" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+OBJ      = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o
+LINKOBJ  = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
 BIN      = QUAN_LY_TIEM_NET.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
-RM       = rm -f
+RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
 
 all: all-before $(BIN) all-after
-
 
 clean: clean-custom
 	${RM} $(OBJ) $(BIN)

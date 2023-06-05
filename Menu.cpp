@@ -6,7 +6,11 @@ void MainMenu()
     {
         system("cls");
         vector<string> arr;
-        arr = {"STAFF","USER","DEVICE","BREAKFAST"};
+        std::string myArray[] = {"STAFF","USER","DEVICE","BREAKFAST"};
+        for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) 
+	            {
+                    arr.push_back(myArray[i]);
+                }
         int count = 0;
         cout<<endl << "\t\t"; line(60,'_');
         cout<<"\n\t\t|\t\t\t "<<" MANAGER MODE"  << setfill(' ')  << setw(22)<<"|";
@@ -58,7 +62,12 @@ void MainMenu()
                         &ListStaff::FilterbyInfor,
                         &ListStaff::FilterbySalary   
                     };
-                arr = {"ID","NAME","TELL","SEX","CCCD","BIRTHDAY","PERMIT","SALARY"};
+                arr.clear();
+                std::string myArray[] = {"ID","NAME","TELL","SEX","CCCD","BIRTHDAY","PERMIT","SALARY"};
+                for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) 
+	            {
+                    arr.push_back(myArray[i]);
+                }
                 ManagementMenu(list,"STAFF",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
                 choose_option();
                 cin>>choose; cin.ignore();
@@ -104,7 +113,12 @@ void MainMenu()
                         &ListUser::FilterbyInfor,
                         &ListUser::FilterbyRank  
                     };
-                arr = {"ID","NAME","TELL","SEX","CCCD","BIRTHDAY","USERNAME","RANK"};
+                arr.clear();
+                std::string myArray[] = {"ID","NAME","TELL","SEX","CCCD","BIRTHDAY","USERNAME","RANK"};
+                for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) 
+	            {
+                    arr.push_back(myArray[i]);
+                }
                 ManagementMenu(list,"USER",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
                 choose_option();
                 cin>>choose; cin.ignore();
@@ -141,7 +155,12 @@ void MainMenu()
                         &ListPC::FilterbyInfor,
                         &ListPC::FilterbyPrice
                 };
-                arr = {"ID","NAME","MODEL","OPERATINGSYSTEM","PRICE"};
+                arr.clear();
+                std::string myArray[] = {"ID","NAME","MODEL","OPERATINGSYSTEM","PRICE"};
+                for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) 
+	            {
+                    arr.push_back(myArray[i]);
+                }
                 ManagementMenu(list,"PC",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
                 choose_option();
                 cin>>choose; cin.ignore();
@@ -177,7 +196,12 @@ void MainMenu()
                         &ListBreakfast::FilterbyInfor,
                         &ListBreakfast::FilterbyPrice    
                     };
-                arr = {"ID","NAME","BRAND","SIZE","PRICE"};
+                arr.clear();
+                std::string myArray[] = {"ID","NAME","BRAND","SIZE","PRICE"};
+                for (int i = 0; i < sizeof(myArray) / sizeof(myArray[0]); i++) 
+	            {
+                    arr.push_back(myArray[i]);
+                }
                 ManagementMenu(list,"BREAKFAST",arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
                 choose_option;
                 cin>>choose; cin.ignore();
@@ -256,7 +280,8 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
             system("cls");
             end = arr[arr.size()-1];
             arr.clear();
-            arr = {"FILTER",end};
+            arr.push_back("FILTER");
+            arr.push_back(end);
             FilterMenu(list,file,arr,FunctionFilterArr);
             break;
         default:

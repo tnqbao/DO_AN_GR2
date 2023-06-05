@@ -134,7 +134,8 @@ void ListBreakfast::exportList(string file)
     {
         this->inf.close();
     }
-    inf.open("Data\\"+file, ios::out);
+    string efile = "Data\\" + file;
+    inf.open(efile.c_str(), ios::out);
     for (int i = 0; i < b.size(); i++)
     {
         b[i].exportList(inf);

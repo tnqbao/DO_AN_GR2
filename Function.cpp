@@ -46,15 +46,24 @@ int SortPermit(string permit)
 
 int SortDay(string date1,string date2)
 {
-    if (stoi(date1.substr(6,4))>stoi(date2.substr(6,4))) return 1;
-    else if (stoi(date1.substr(6,4))<stoi(date2.substr(6,4))) return 2;
-    if (stoi(date1.substr(3,2))>stoi(date2.substr(3,2))) return 1;
-    else if (stoi(date1.substr(3,2))<stoi(date2.substr(3,2))) return 2;
-    if (stoi(date1.substr(0,2))>stoi(date2.substr(0,2))) return 1;
-    else if (stoi(date1.substr(0,2))<stoi(date2.substr(0,2))) return 2;
+    if (strtoint(date1.substr(6,4))>strtoint(date2.substr(6,4))) return 1;
+    else if (strtoint(date1.substr(6,4))<strtoint(date2.substr(6,4))) return 2;
+    if (strtoint(date1.substr(3,2))>strtoint(date2.substr(3,2))) return 1;
+    else if (strtoint(date1.substr(3,2))<strtoint(date2.substr(3,2))) return 2;
+    if (strtoint(date1.substr(0,2))>strtoint(date2.substr(0,2))) return 1;
+    else if (strtoint(date1.substr(0,2))<strtoint(date2.substr(0,2))) return 2;
     return 0;
 }
 
+int strtoint(string str)
+{
+    int tong = 0;
+    for (int i = 0; i<str.length();i++)
+    {
+        tong = tong*10 + int(str[i]) - 48;
+    }
+    return tong;
+}
 
 void title_PC()
 {
