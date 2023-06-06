@@ -247,7 +247,7 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
         case 2:
             system("cls");
             list.deleteObject();
-            list.exportList("Temporary.txt");
+            list.exportList("Temporary");
             list.GeneralViewList();
             cout<<"\nBan chac chan muon xoa chu(1-Co/2-Khong)? "; 
             cin>>chon; cin.ignore();
@@ -259,7 +259,7 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
         case 3:
             system("cls");
             list.insertObject();
-            list.exportList("Temporary.txt");
+            list.exportList("Temporary");
             list.GeneralViewList();
             cout<<"\nBan chac chan muon them chu(1-Co/2-Khong)? "; 
             cin>>chon; cin.ignore();
