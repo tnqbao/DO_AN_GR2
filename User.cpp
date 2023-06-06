@@ -158,7 +158,7 @@ void ListUser::GeneralViewList(vector<Person*> user)
 }
 void ListUser::exportList(string file)
 {
-    ListPerson::exportList("user");
+    ListPerson::exportList(file);
 }
 void ListUser::insertObject()
 {

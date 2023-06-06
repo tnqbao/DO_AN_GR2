@@ -289,7 +289,7 @@ void ListPC::exportList(string file)
     {
         this->inf.close();
     }
-    string efile = "Data\\" + file;
+    string efile = "Data\\" + file + ".txt";
     inf.open(efile.c_str(), ios::out);
     for (int i = 0; i < b.size(); i++)
     {

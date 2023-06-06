@@ -251,7 +251,7 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
             list.GeneralViewList();
             cout<<"\nBan chac chan muon xoa chu(1-Co/2-Khong)? "; 
             cin>>chon; cin.ignore();
-            if (chon==1) list.exportList(file+".txt");
+            if (chon==1) list.exportList(file);
             cout<<"\n(1.Back // ELSE.MAINMENU)"; cin>>chon; cin.ignore();  
             if(chon==1) ManagementMenu(list,file,arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
             else MainMenu(); 
@@ -263,7 +263,7 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
             list.GeneralViewList();
             cout<<"\nBan chac chan muon them chu(1-Co/2-Khong)? "; 
             cin>>chon; cin.ignore();
-            if (chon==1) list.exportList(file+".txt");
+            if (chon==1) list.exportList(file);
             cout<<"\n(1.Back // ELSE.MAINMENU)";cin>>chon; cin.ignore();  
             if(chon==1) ManagementMenu(list,file,arr,FunctionSortArr,FunctionFindArr,FunctionFilterArr);
             else MainMenu(); 

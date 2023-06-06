@@ -184,7 +184,7 @@ void ListStaff::GeneralViewList(vector<Person*> staff)
 }
 void ListStaff::exportList(string file)
 {
-    ListPerson::exportList("staff");
+    ListPerson::exportList(file);
 }
 void ListStaff::deleteObject()
 {
@@ -194,7 +194,7 @@ void ListStaff::insertObject()
 {
     cout<<"\nNhap so luong nhan vien can bo sung: "; int n; cin>>n; cin.ignore();
     if (n<1) return;
-    cout<<"\nNhap ID(VD:CS000-ContractStaff/RS000-RegularStaff)?: ";
+    cout<<"\nNhap loai nhan vien(1-ContractStaff/2-RegularStaff)?: ";
     string checkid;
     getline(cin,checkid);
     if (check_substring("CS",checkid)==true) a = new ContractStaff(checkid);
