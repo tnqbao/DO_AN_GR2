@@ -168,10 +168,19 @@ void ListUser::insertObject()
     if (check_substring("RS",checkid)==true) a = new RegisteredUser(checkid);
     else a = new GuestUser(checkid);
     for (int i = 0; i<n;i++)
-    {   
+    {   bool check_tontai = false;
         cout<<"Khach hang bo sung thu"<<i+1<<": ";
         a->input();
-        b.push_back(a);
+        for (int i = 0;i<b.size();i++)
+        {
+            if (a->get_id()==b[i]->get_id()||a->get_tell()==b[i]->get_tell()) 
+            {
+                cout<<"\nDu lieu da ton tai";
+                check_tontai = true;
+                break;
+            }
+        }
+        if (check_tontai==false)b.push_back(a);
     }
 }
 void ListUser::deleteObject()

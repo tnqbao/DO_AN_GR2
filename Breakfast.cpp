@@ -122,10 +122,19 @@ void ListBreakfast::insertObject()
 {
     cout<<"\nNhap so luong thong tin mon an can bo sung vao menu: "; int n; cin>>n; cin.ignore();
     for (int i = 0; i<n;i++)
-    {   
+    {   bool check_tontai = false; 
         cout<<"Mon an bo sung thu"<<i+1<<": ";
         a.input();
-        b.push_back(a);
+        for (int i = 0;i<b.size();i++)
+        {   
+            if (a.get_id()==b[i].get_id()) 
+            {
+                cout<<"\nDu lieu da ton tai";
+                check_tontai = true;
+                break;
+            }
+        }
+        if (check_tontai==false) b.push_back(a);
     }
 }
 void ListBreakfast::exportList(string file)

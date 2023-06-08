@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o
-LINKOBJ  = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o
+OBJ      = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o Game.o
+LINKOBJ  = Person.o main.o Function.o Staff.o User.o Pc.o Breakfast.o Menu.o Game.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
@@ -47,3 +47,6 @@ Breakfast.o: Breakfast.cpp
 
 Menu.o: Menu.cpp
 	$(CPP) -c Menu.cpp -o Menu.o $(CXXFLAGS)
+
+Game.o: Game.cpp
+	$(CPP) -c Game.cpp -o Game.o $(CXXFLAGS)

@@ -277,9 +277,18 @@ void ListPC::insertObject()
     if (check_substring("LPC",checkid)==true) a = new Laptop(checkid);
     else if(check_substring("TPC",checkid)==true) a= new TabletPC(checkid);
     for (int i = 0; i<n;i++)
-    {   
+    {   bool check_tontai = false;   
         cout<<"May tinh bo sung thu"<<i+1<<": ";
         a->input();
+        for (int i = 0;i<b.size();i++)
+        {
+            if (a->get_id()==b[i]->get_id()) 
+            {
+                cout<<"\nDu lieu da ton tai";
+                check_tontai = true;
+                break;
+            }
+        }
         b.push_back(a);
     }
 }

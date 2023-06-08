@@ -199,11 +199,22 @@ void ListStaff::insertObject()
     getline(cin,checkid);
     if (check_substring("CS",checkid)==true) a = new ContractStaff(checkid);
     else a = new RegularStaff(checkid);
+   
     for (int i = 0; i<n;i++)
-    {   
+    {    bool check_tontai = false;
         cout<<"Nhan vien bo sung thu"<<i+1<<": ";
         a->input();
-        b.push_back(a);
+        for (int i = 0;i<b.size();i++)
+        {
+            if (a->get_id()==b[i]->get_id()||a->get_tell()==b[i]->get_tell()) 
+            {
+                cout<<"\nDu lieu da ton tai";
+                check_tontai = true;
+                break;
+            }
+        }
+
+        if (check_tontai==false) b.push_back(a);
     }
 }
 void ListStaff::IncreSortbySalary()

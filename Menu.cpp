@@ -290,6 +290,14 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
     return;
 }
 
+void UserMenu()
+{   system("cls");
+    cout<<"**(1.Play X/O GAME / 2.EXIT): ";
+    int choose;
+    cin>>choose;
+    if (choose==1) X_O();
+    else SigninMenu();
+}
 template<class T>
 void SortMenu(T& list, string file, std::vector<string> arr ,void(T::*FunctionSortArr[])())
 {
@@ -432,12 +440,13 @@ void SigninMenu()
 {   cout<<"XIN MOI DANG NHAP!";
     string username; string pass;
     cout<<"\nUSERNAME: "; getline(cin,username);
-    cout<<"PASSWORK:" ; getline(cin,pass); 
+    cout<<"PASSWORK: " ; getline(cin,pass); 
     while(login(username,pass)==false)
     {system("cls");
      cout<<"KHONG HOP LE, MOI NHAP LAI!";
      cout<<"\nUSERNAME: "; getline(cin,username);
      cout<<"PASSWORK:" ; getline(cin,pass);
     }
-    if (login(username,pass)) MainMenu();
+    if (login(username,pass)&&check_substring("admin",username)) MainMenu();
+    else UserMenu();
 }
