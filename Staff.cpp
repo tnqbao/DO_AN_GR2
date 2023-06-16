@@ -153,10 +153,10 @@ void ListStaff::inList()
 {   string checkid;
     while (!this->inf.eof())
     {   getline(this->inf,checkid);
-        if (check_substring("CS",checkid)==true) a = new ContractStaff(checkid);
-        else a = new RegularStaff(checkid);
-        a->input(this->inf);
-        b.push_back(a);
+        if (check_substring("CS",checkid)==true) ps = new ContractStaff(checkid);
+        else ps = new RegularStaff(checkid);
+        ps->input(this->inf);
+        list.push_back(ps);
     }
     inf.close();
 }
@@ -165,9 +165,9 @@ void ListStaff::GeneralViewList()
     ListPerson::GeneralViewList();
     cout<<setw(12)<<"Permit"<<" |";
     cout<<setw(15)<<"Salary"<<" |";
-    for (int i = 0; i < b.size(); i++)
+    for (int i = 0; i < list.size(); i++)
     {   cout<<endl; line(113,'_');
-        b[i]->GeneralView();
+        list[i]->GeneralView();
     }
     cout<<endl; line(113,'_');
 }
@@ -197,16 +197,16 @@ void ListStaff::insertObject()
     cout<<"\nNhap loai nhan vien(1-ContractStaff/2-RegularStaff)?: ";
     string checkid;
     getline(cin,checkid);
-    if (check_substring("CS",checkid)==true) a = new ContractStaff(checkid);
-    else a = new RegularStaff(checkid);
+    if (check_substring("CS",checkid)==true) ps = new ContractStaff(checkid);
+    else ps = new RegularStaff(checkid);
    
     for (int i = 0; i<n;i++)
     {    bool check_tontai = false;
         cout<<"Nhan vien bo sung thu"<<i+1<<": ";
-        a->input();
-        for (int i = 0;i<b.size();i++)
+        ps->input();
+        for (int i = 0;i<list.size();i++)
         {
-            if (a->get_id()==b[i]->get_id()||a->get_tell()==b[i]->get_tell()) 
+            if (ps->get_id()==list[i]->get_id()||ps->get_tell()==list[i]->get_tell()) 
             {
                 cout<<"\nDu lieu da ton tai";
                 check_tontai = true;
@@ -214,44 +214,44 @@ void ListStaff::insertObject()
             }
         }
 
-        if (check_tontai==false) b.push_back(a);
+        if (check_tontai==false) list.push_back(ps);
     }
 }
 void ListStaff::IncreSortbySalary()
 {
-    for (int i = b.size()-1; i>0;i--)
+    for (int i = list.size()-1; i>0;i--)
     {
         for (int j = 0 ; j<i;j++)
-        if (b[j]->get_salary()>b[j+1]->get_salary())
-        swap(b[j],b[j+1]);
+        if (list[j]->get_salary()>list[j+1]->get_salary())
+        swap(list[j],list[j+1]);
     }
 }
 void ListStaff::DecreSortbySalary()
 {
-    for (int i = b.size()-1; i>0;i--)
+    for (int i = list.size()-1; i>0;i--)
     {
         for (int j = 0 ; j<i;j++)
-        if (b[j]->get_salary()<b[j+1]->get_salary())
-        swap(b[j],b[j+1]);
+        if (list[j]->get_salary()<list[j+1]->get_salary())
+        swap(list[j],list[j+1]);
     }
 }
 
 void ListStaff::IncreSortbyPermit()
 {
-    for (int i = b.size()-1; i>0;i--)
+    for (int i = list.size()-1; i>0;i--)
     {
         for (int j = 0 ; j<i;j++)
-        if (SortPermit(b[j]->get_permit())>SortPermit(b[j+1]->get_permit()))
-        swap(b[j],b[j+1]);
+        if (SortPermit(list[j]->get_permit())>SortPermit(list[j+1]->get_permit()))
+        swap(list[j],list[j+1]);
     }
 }
 void ListStaff::DecreSortbyPermit()
 {
-    for (int i = b.size()-1; i>0;i--)
+    for (int i = list.size()-1; i>0;i--)
     {
         for (int j = 0 ; j<i;j++)
-        if (SortPermit(b[j]->get_permit())<SortPermit(b[j+1]->get_permit()))
-        swap(b[j],b[j+1]);
+        if (SortPermit(list[j]->get_permit())<SortPermit(list[j+1]->get_permit()))
+        swap(list[j],list[j+1]);
     }
 }
 void ListStaff::FindbySalary()
@@ -260,11 +260,11 @@ void ListStaff::FindbySalary()
     cout<<"\nMoi nhap so luong can tim: "; 
     double money;
     cin>>money; cin.ignore();
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (money==b[i]->get_salary())
+        if (money==list[i]->get_salary())
         {   cout<<endl; line(112,'_');
-            b[i]->GeneralView();
+            list[i]->GeneralView();
             count++;
         }
     }
@@ -277,11 +277,11 @@ void ListStaff::FindbyPermit()
     cout<<"\nMoi nhap chuc vu can tim: "; 
     string substring;
     getline(cin,substring);
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (check_substring(substring,b[i]->get_permit())==true)
+        if (check_substring(substring,list[i]->get_permit())==true)
         {   cout<<endl; line(112,'_');
-            b[i]->GeneralView();
+            list[i]->GeneralView();
             count++;
         }
     }
@@ -290,9 +290,9 @@ void ListStaff::FindbyPermit()
 }
 void ListStaff::TotalOfSalary()
 {   float tong = 0;
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        tong += b[i]->get_salary();
+        tong += list[i]->get_salary();
     }
     cout<<"\nTong tien luong cua nhan vien la: "<<fixed<<setprecision(0)<<tong<< "vnd";
 }
@@ -301,10 +301,10 @@ void ListStaff::FilterbySalary()
     cout<<"\nNhap muc luong thap nhat/cao nhat: \n";
     int min; int max;
     cout<<"\nMIN: "; cin>>min; cout<<"MAX: "; cin>>max;
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (b[i]->get_salary()<min||b[i]->get_salary()>max) continue;
-        staff.push_back(b[i]);
+        if (list[i]->get_salary()<min||list[i]->get_salary()>max) continue;
+        staff.push_back(list[i]);
     }
     ListStaff::GeneralViewList(staff);
 }

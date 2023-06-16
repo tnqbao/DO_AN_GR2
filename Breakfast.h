@@ -32,7 +32,7 @@ class Breakfast
 class ListBreakfast
 {
     public:
-        vector<Breakfast> b;
+        vector<Breakfast> list;
         vector<Breakfast> food;
         fstream inf, onf;
         Breakfast a;

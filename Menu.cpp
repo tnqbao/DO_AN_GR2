@@ -280,7 +280,7 @@ void ManagementMenu(T& list,string file, std::vector<string> arr,void(T::*Functi
             system("cls");
             end = arr[arr.size()-1];
             arr.clear();
-            arr.push_back("FILTER");
+            arr.push_back("INFOR");
             arr.push_back(end);
             FilterMenu(list,file,arr,FunctionFilterArr);
             break;
@@ -437,15 +437,17 @@ bool login(string user,string pass)
 }
 
 void SigninMenu()
-{   cout<<"XIN MOI DANG NHAP!";
+{   
+    cout<<"*ADMIN ACCOUNT: admin123, pass: 1234567 \n*USER ACCOUNT: quocbao106204, pass: 1234567\n\n";
+    cout<<"\t\t\t\tXIN MOI DANG NHAP!\t";
     string username; string pass;
-    cout<<"\nUSERNAME: "; getline(cin,username);
-    cout<<"PASSWORK: " ; getline(cin,pass); 
+    cout<<"\n\t\t\t\tUSERNAME: "; getline(cin,username);
+    cout<<"\t\t\t\tPASSWORK: " ; getline(cin,pass); 
     while(login(username,pass)==false)
-    {system("cls");
+    {
      cout<<"KHONG HOP LE, MOI NHAP LAI!";
-     cout<<"\nUSERNAME: "; getline(cin,username);
-     cout<<"PASSWORK:" ; getline(cin,pass);
+     cout<<"\n\t\t\t\tUSERNAME: "; getline(cin,username);
+     cout<<"\t\t\t\tPASSWORK:" ; getline(cin,pass);
     }
     if (login(username,pass)&&check_substring("admin",username)) MainMenu();
     else UserMenu();

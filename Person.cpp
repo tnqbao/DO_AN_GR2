@@ -134,10 +134,10 @@ void ListPerson::exportList(string file)
     }
     string efile = "Data\\" + file + ".txt";
     inf.open(efile.c_str(), ios::out);
-    for (int i = 0; i < b.size(); i++)
+    for (int i = 0; i < list.size(); i++)
     {
-        b[i]->exportList(inf,file);
-        if (i < b.size() - 1)
+        list[i]->exportList(inf,file);
+        if (i < list.size() - 1)
         {
             inf << endl;
         }
@@ -147,7 +147,7 @@ void ListPerson::deleteObject(string text)
 {   cout << "\nChon so luong "<<text<<"  can xoa: "; 
     int n; 
     cin >> n; 
-    while(n > b.size())
+    while(n > list.size())
     {
         cout << "\nKhong hon le, moi nhap lai ";
         cin >> n;
@@ -164,139 +164,139 @@ void ListPerson::deleteObject(string text)
         }
         for (set<int>::reverse_iterator i = st.rbegin(); i != st.rend(); i++)
         {
-            b.erase(b.begin() + *i);
+            list.erase(list.begin() + *i);
         }
     }
 }
 void ListPerson::IncreSortbyID()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_id()>b[j+1]->get_id())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_id()>list[j+1]->get_id())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::DecreSortbyID()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_id()<b[j+1]->get_id())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_id()<list[j+1]->get_id())
+            swap(list[j],list[j+1]);
         }
     }
 }  
 void ListPerson::IncreSortbyName()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_name()>b[j+1]->get_name())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_name()>list[j+1]->get_name())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::DecreSortbyName()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_name()<b[j+1]->get_name())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_name()<list[j+1]->get_name())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::IncreSortbyTell()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_tell()>b[j+1]->get_tell())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_tell()>list[j+1]->get_tell())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::DecreSortbyTell()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_tell()<b[j+1]->get_tell())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_tell()<list[j+1]->get_tell())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::IncreSortbySex()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_sex()>b[j+1]->get_sex())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_sex()>list[j+1]->get_sex())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::DecreSortbySex()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_sex()<b[j+1]->get_sex())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_sex()<list[j+1]->get_sex())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::IncreSortbyCCCD()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_cccd()>b[j+1]->get_cccd())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_cccd()>list[j+1]->get_cccd())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::DecreSortbyCCCD()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_cccd()<b[j+1]->get_cccd())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_cccd()<list[j+1]->get_cccd())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::IncreSortbyBirthday()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (SortDay(b[j]->get_birthday(),b[j+1]->get_birthday())==1)
-            swap(b[j],b[j+1]);
+            if (SortDay(list[j]->get_birthday(),list[j+1]->get_birthday())==1)
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPerson::DecreSortbyBirthday()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (SortDay(b[j]->get_birthday(),b[j+1]->get_birthday())==2)
-            swap(b[j],b[j+1]);
+            if (SortDay(list[j]->get_birthday(),list[j+1]->get_birthday())==2)
+            swap(list[j],list[j+1]);
         }
     }
 }
@@ -306,11 +306,11 @@ void ListPerson::FindbyID()
     string substring;
     getline(cin,substring);
     cout<<endl; line(112,'_');
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (check_substring(substring,b[i]->get_name())==true)
+        if (check_substring(substring,list[i]->get_name())==true)
         {   
-            b[i]->GeneralView();
+            list[i]->GeneralView();
             count++;
         }
     }
@@ -322,11 +322,11 @@ void ListPerson::FindbyName()
     cout<<"\nMoi nhap ten can tim: "; 
     string substring;
     getline(cin,substring);
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (check_substring(substring,b[i]->get_name())==true)
+        if (check_substring(substring,list[i]->get_name())==true)
         {   cout<<endl; line(112,'_');
-            b[i]->GeneralView();
+            list[i]->GeneralView();
             count++;
         }
     }
@@ -338,11 +338,11 @@ void ListPerson::FindbyTell()
     cout<<"\nMoi nhap sdt can tim: "; 
     string substring;
     getline(cin,substring);
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (check_substring(substring,b[i]->get_tell())==true)
+        if (check_substring(substring,list[i]->get_tell())==true)
         {  cout<<endl; line(112,'_');
-            b[i]->GeneralView();
+            list[i]->GeneralView();
             count++;
         }
     }
@@ -354,11 +354,11 @@ void ListPerson::FindbyBirthday()
     cout<<"\nMoi nhap ngay/thang/nam sinh : "; 
     string substring;
     getline(cin,substring);
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (check_substring(substring,b[i]->get_birthday())==true)
+        if (check_substring(substring,list[i]->get_birthday())==true)
         {   cout<<endl; line(112,'_');
-            b[i]->GeneralView();
+            list[i]->GeneralView();
             count++;
         }
     }
@@ -370,11 +370,11 @@ void ListPerson::FindbySex()
     cout<<"\nMoi nhap gioi tinh : "; 
     string substring;
     getline(cin,substring);
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (check_substring(substring,b[i]->get_sex())==true)
+        if (check_substring(substring,list[i]->get_sex())==true)
         {   cout<<endl; line(112,'_');
-            b[i]->GeneralView();
+            list[i]->GeneralView();
             count++;
         }
     }
@@ -386,11 +386,11 @@ void ListPerson::FindbyCCCD()
     cout<<"\nMoi nhap ten can tim: "; 
     string substring;
     getline(cin,substring);
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {   int count = 0;
-        if (check_substring(substring,b[i]->get_cccd())==true)
+        if (check_substring(substring,list[i]->get_cccd())==true)
         {   cout<<endl; line(112,'_');
-            b[i]->GeneralView();
+            list[i]->GeneralView();
             count++;
         }
     }
@@ -400,18 +400,18 @@ void ListPerson::FindbyCCCD()
 void ListPerson::FilterbyInfor()
 {   int count = 0;
     cout<<"\nNhap thong tin can loc: (Enter->Bo qua)\n";
-    a = new Person;
-    a->input();
-    for (int i = 0; i<b.size();i++)
+    ps= new Person;
+    ps->input();
+    for (int i = 0; i<list.size();i++)
     {   
-        if (check_substring(a->get_id(),b[i]->get_id())==false) continue;
-        if (check_substring(a->get_name(),b[i]->get_name())==false) continue;
-        if (check_substring(a->get_tell(),b[i]->get_tell())==false) continue;
-        if (check_substring(a->get_birthday(),b[i]->get_birthday())==false) continue;
-        if (check_substring(a->get_sex(),b[i]->get_sex())==false) continue;
-        if (check_substring(a->get_cccd(),b[i]->get_cccd())==false) continue;
+        if (check_substring(ps->get_id(),list[i]->get_id())==false) continue;
+        if (check_substring(ps->get_name(),list[i]->get_name())==false) continue;
+        if (check_substring(ps->get_tell(),list[i]->get_tell())==false) continue;
+        if (check_substring(ps->get_birthday(),list[i]->get_birthday())==false) continue;
+        if (check_substring(ps->get_sex(),list[i]->get_sex())==false) continue;
+        if (check_substring(ps->get_cccd(),list[i]->get_cccd())==false) continue;
         cout<<endl; line(112,'_');
-        b[i]->GeneralView();
+        list[i]->GeneralView();
         count++;
     }
     if (count==0) cout<<"\nNOT FOUND";     

@@ -117,15 +117,15 @@ void ListUser::inList()
         {   getline(this->inf,checkid);
             if (check_substring("RU",checkid)==true)
             {
-                a = new RegisteredUser(checkid);
-                a->input(this->inf);
-                b.push_back(a);
+                ps = new RegisteredUser(checkid);
+                ps->input(this->inf);
+                list.push_back(ps);
             }
             else if (check_substring("GU",checkid)==true)
             {
-                a = new GuestUser(checkid);
-                a->input(this->inf);
-                b.push_back(a);
+                ps = new GuestUser(checkid);
+                ps->input(this->inf);
+                list.push_back(ps);
             }
         }
         inf.close();
@@ -137,9 +137,9 @@ void ListUser::GeneralViewList()
         cout<<setw(15)<<"Username/DoP"<<" |";
         cout<<setw(10)<<"Rank"<<" |";
         cout<<endl; line(112,'_');
-        for (int i = 0; i < b.size(); i++)
+        for (int i = 0; i < list.size(); i++)
         {   
-            b[i]->GeneralView();
+            list[i]->GeneralView();
         }
         cout<<endl; line(112,'_');
 }
@@ -165,22 +165,22 @@ void ListUser::insertObject()
     cout<<"\nNhap so luong khach hang can bo sung: "; int n; cin>>n; cin.ignore();
     string checkid;
     getline(cin,checkid);
-    if (check_substring("RS",checkid)==true) a = new RegisteredUser(checkid);
-    else a = new GuestUser(checkid);
+    if (check_substring("RS",checkid)==true) ps = new RegisteredUser(checkid);
+    else ps = new GuestUser(checkid);
     for (int i = 0; i<n;i++)
     {   bool check_tontai = false;
         cout<<"Khach hang bo sung thu"<<i+1<<": ";
-        a->input();
-        for (int i = 0;i<b.size();i++)
+        ps->input();
+        for (int i = 0;i<list.size();i++)
         {
-            if (a->get_id()==b[i]->get_id()||a->get_tell()==b[i]->get_tell()) 
+            if (ps->get_id()==list[i]->get_id()||ps->get_tell()==list[i]->get_tell()) 
             {
                 cout<<"\nDu lieu da ton tai";
                 check_tontai = true;
                 break;
             }
         }
-        if (check_tontai==false)b.push_back(a);
+        if (check_tontai==false)list.push_back(ps);
     }
 }
 void ListUser::deleteObject()
@@ -189,41 +189,41 @@ void ListUser::deleteObject()
 }
 void ListUser::IncreSortbyUsername()
 {
-    for (int i = b.size()-1; i>0;i--)
+    for (int i = list.size()-1; i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_Username()>b[j+1]->get_Username()) swap(b[j],b[j+1]);
+            if (list[j]->get_Username()>list[j+1]->get_Username()) swap(list[j],list[j+1]);
         }
     }
 }
 void ListUser::DecreSortbyUsername()
 {
-    for (int i = b.size()-1; i>0;i--)
+    for (int i = list.size()-1; i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_Username()<b[j+1]->get_Username()) swap(b[j],b[j+1]);
+            if (list[j]->get_Username()<list[j+1]->get_Username()) swap(list[j],list[j+1]);
         }
     }
 }
 void ListUser::IncreSortbyRank()
 {
-    for (int i = b.size()-1; i>0;i--)
+    for (int i = list.size()-1; i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (get_top(b[j]->get_rank())>get_top(b[j+1]->get_rank())) swap(b[j],b[j+1]);
+            if (get_top(list[j]->get_rank())>get_top(list[j+1]->get_rank())) swap(list[j],list[j+1]);
         }
     }
 }
 void ListUser::DecreSortbyRank()
 {
-     for (int i = b.size()-1; i>0;i--)
+     for (int i = list.size()-1; i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (get_top(b[j]->get_rank())<get_top(b[j+1]->get_rank())) swap(b[j],b[j+1]);
+            if (get_top(list[j]->get_rank())<get_top(list[j+1]->get_rank())) swap(list[j],list[j+1]);
         }
     }
 }
@@ -233,11 +233,11 @@ void ListUser::FindbyUsername()
         cout<<"\nMoi nhap tai khoan can tim: "; 
         string substring;
         getline(cin,substring);
-        for (int i = 0; i<b.size();i++)
+        for (int i = 0; i<list.size();i++)
         {
-            if (check_substring(substring,b[i]->get_Username())==true)
+            if (check_substring(substring,list[i]->get_Username())==true)
             {
-                user.push_back(b[i]);
+                user.push_back(list[i]);
                 count++;
             }
         }
@@ -251,11 +251,11 @@ void ListUser::FindbyRank()
         cout<<"\nMoi nhap muc rank can tim: "; 
         string substring;
         getline(cin,substring);
-        for (int i = 0; i<b.size();i++)
+        for (int i = 0; i<list.size();i++)
         {
-            if (check_substring(substring,b[i]->get_rank())==true)
+            if (check_substring(substring,list[i]->get_rank())==true)
             {
-                user.push_back(b[i]);
+                user.push_back(list[i]);
                 count++;
             }
         }
@@ -272,10 +272,10 @@ void ListUser::FilterbyRank()
         cout<<"\nMoi nhap muc rank thap nhat: ";
         string minrank;
         getline(cin,minrank);
-        for (int i = 0; i<b.size();i++)
+        for (int i = 0; i<list.size();i++)
         {
-            if (get_top(b[i]->get_rank())<=get_top(maxrank)&&get_top(b[i]->get_rank())>=get_top(minrank))
-            user.push_back(b[i]);
+            if (get_top(list[i]->get_rank())<=get_top(maxrank)&&get_top(list[i]->get_rank())>=get_top(minrank))
+            user.push_back(list[i]);
         }
         ListUser::GeneralViewList(user);
         if (count==0) cout<<"\nNOT FOUND";

@@ -37,9 +37,9 @@ class Person
 class ListPerson
 {
     public:
-        vector<Person*> b;
+        vector<Person*> list;
         fstream inf, onf;
-        Person *a;
+        Person *ps;
         virtual void inList();
         virtual void GeneralViewList();
         virtual void insertObject();

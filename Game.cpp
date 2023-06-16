@@ -8,22 +8,30 @@ char field[HANG][COT];
 
 //MAIN
 void X_O()
-{  system("cls");
-   int chedo;
-   chonchedo(chedo);
-   if (chedo==1) 
-   { system("cls");
-	  loading(3);
-	  khoitao_field(field);
-	  chedo1(field);
+{   cout<<"\t\t\t (USER MODE) \n\n\n";
+	char choose;
+	while(1)
+    {
+	system("cls");
+	int chedo;
+	chonchedo(chedo);
+	if (chedo==1) 
+	{ 
+		system("cls");
+		loading(3);
+		khoitao_field(field);
+		chedo1(field);
 	}
 	if (chedo==2) 
-   { system("cls");
-	  loading(3);
-	  khoitao_field(field);
-	  chedo2(field);
+	{
+		system("cls");
+		loading(3);
+		khoitao_field(field);
+		chedo2(field);
 	}
-    else return;
+	cout<<"\nContinue(Y/N)?: "; cin>>choose; 
+	}
+    return;
 }
 //XU LY HAM
 void chonchedo(int &chedo)

@@ -77,7 +77,7 @@ class TabletPC : public PC
 class ListPC
 {
     public:
-        vector<PC*> b;
+        vector<PC*> list;
         vector<PC*> pc;
         fstream inf, onf;
         PC *a;

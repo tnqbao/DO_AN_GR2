@@ -236,13 +236,13 @@ void ListPC::inList()
             {
                 a = new Laptop(checkid);
                 a->input(this->inf);
-                b.push_back(a);
+                list.push_back(a);
             }
             else if (check_substring("TPC",checkid)==true)
             {
                 a = new TabletPC(checkid);
                 a->input(this->inf);
-                b.push_back(a);
+                list.push_back(a);
             }
         }
         inf.close();
@@ -252,9 +252,9 @@ void ListPC::GeneralViewList()
     cout<<endl; line(93,'_');
     title_PC();
     cout<<endl; line(93,'_');
-    for (int i = 0;i<b.size();i++)
+    for (int i = 0;i<list.size();i++)
     {
-        b[i]->GeneralView();
+        list[i]->GeneralView();
     }
     cout<<endl; line(93,'_');
 }
@@ -263,7 +263,7 @@ void ListPC::GeneralViewList(vector<PC*> pc)
     cout<<endl; line(93,'_');
     title_PC();
     cout<<endl; line(93,'_');
-    for (int i = 0;i<b.size();i++)
+    for (int i = 0;i<list.size();i++)
     {
         pc[i]->GeneralView();
     }
@@ -280,16 +280,16 @@ void ListPC::insertObject()
     {   bool check_tontai = false;   
         cout<<"May tinh bo sung thu"<<i+1<<": ";
         a->input();
-        for (int i = 0;i<b.size();i++)
+        for (int i = 0;i<list.size();i++)
         {
-            if (a->get_id()==b[i]->get_id()) 
+            if (a->get_id()==list[i]->get_id()) 
             {
                 cout<<"\nDu lieu da ton tai";
                 check_tontai = true;
                 break;
             }
         }
-        b.push_back(a);
+        list.push_back(a);
     }
 }
 void ListPC::exportList(string file)
@@ -300,10 +300,10 @@ void ListPC::exportList(string file)
     }
     string efile = "Data\\" + file + ".txt";
     inf.open(efile.c_str(), ios::out);
-    for (int i = 0; i < b.size(); i++)
+    for (int i = 0; i < list.size(); i++)
     {
-        b[i]->exportList(inf,file);
-        if (i < b.size() - 1)
+        list[i]->exportList(inf,file);
+        if (i < list.size() - 1)
         {
             inf << endl;
         }
@@ -314,7 +314,7 @@ void ListPC::deleteObject()
     cout << "\nChon so luong may tinh can xoa: "; 
     int n; 
     cin >> n; 
-    while(n > b.size())
+    while(n > list.size())
     {
         cout << "\nKhong hon le, moi nhap lai ";
         cin >> n;
@@ -331,117 +331,117 @@ void ListPC::deleteObject()
         }
         for (set<int>::reverse_iterator i = st.rbegin(); i != st.rend(); i++)
         {
-            b.erase(b.begin() + *i);
+            list.erase(list.begin() + *i);
         }
     }
 }
 void ListPC::IncreSortbyID()
 {
-    for (int i = b.size()-1;i>0;i--)
+    for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_id()>b[j+1]->get_id())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_id()>list[j+1]->get_id())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::DecreSortbyID()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_id()<b[j+1]->get_id())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_id()<list[j+1]->get_id())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::IncreSortbyName()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_name()>b[j+1]->get_name())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_name()>list[j+1]->get_name())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::DecreSortbyName()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_name()<b[j+1]->get_name())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_name()<list[j+1]->get_name())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::IncreSortbyModel()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_model()>b[j+1]->get_model())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_model()>list[j+1]->get_model())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::DecreSortbyModel()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_model()<b[j+1]->get_model())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_model()<list[j+1]->get_model())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::IncreSortbyOperatingSystem()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_operatingSystem()>b[j+1]->get_operatingSystem())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_operatingSystem()>list[j+1]->get_operatingSystem())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::DecreSortbyOperatingSystem()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->get_operatingSystem()<b[j+1]->get_operatingSystem())
-            swap(b[j],b[j+1]);
+            if (list[j]->get_operatingSystem()<list[j+1]->get_operatingSystem())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::IncreSortbyPrice()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->calculatePrice()>b[j+1]->calculatePrice())
-            swap(b[j],b[j+1]);
+            if (list[j]->calculatePrice()>list[j+1]->calculatePrice())
+            swap(list[j],list[j+1]);
         }
     }
 }
 void ListPC::DecreSortbyPrice()
 {
-     for (int i = b.size()-1;i>0;i--)
+     for (int i = list.size()-1;i>0;i--)
     {
         for (int j = 0; j<i;j++)
         {
-            if (b[j]->calculatePrice()<b[j+1]->calculatePrice())
-            swap(b[j],b[j+1]);
+            if (list[j]->calculatePrice()<list[j+1]->calculatePrice())
+            swap(list[j],list[j+1]);
         }
     }
 }
@@ -452,11 +452,11 @@ void ListPC::FindbyID()
         cout<<"\nMoi nhap ID can tim: "; 
         string substring;
         getline(cin,substring);
-        for (int i = 0; i<b.size();i++)
+        for (int i = 0; i<list.size();i++)
         {
-            if (check_substring(substring,b[i]->get_id())==true)
+            if (check_substring(substring,list[i]->get_id())==true)
             {
-                pc.push_back(b[i]);
+                pc.push_back(list[i]);
                 count++;
             }
         }
@@ -470,11 +470,11 @@ void ListPC::FindbyName()
         cout<<"\nMoi nhap ten may can tim: "; 
         string substring;
         getline(cin,substring);
-        for (int i = 0; i<b.size();i++)
+        for (int i = 0; i<list.size();i++)
         {
-            if (check_substring(substring,b[i]->get_name())==true)
+            if (check_substring(substring,list[i]->get_name())==true)
             {
-                pc.push_back(b[i]);
+                pc.push_back(list[i]);
                 count++;
             }
         }
@@ -488,11 +488,11 @@ void ListPC::FindbyModel()
         cout<<"\nMoi nhap loai may can tim: "; 
         string substring;
         getline(cin,substring);
-        for (int i = 0; i<b.size();i++)
+        for (int i = 0; i<list.size();i++)
         {
-            if (check_substring(substring,b[i]->get_model())==true)
+            if (check_substring(substring,list[i]->get_model())==true)
             {
-                pc.push_back(b[i]);
+                pc.push_back(list[i]);
                 count++;
             }
         }
@@ -506,11 +506,11 @@ void ListPC::FindbyOperatingSystem()
         cout<<"\nMoi nhap he dieu hanh can tim: "; 
         string substring;
         getline(cin,substring);
-        for (int i = 0; i<b.size();i++)
+        for (int i = 0; i<list.size();i++)
         {
-            if (check_substring(substring,b[i]->get_operatingSystem())==true)
+            if (check_substring(substring,list[i]->get_operatingSystem())==true)
             {
-                pc.push_back(b[i]);
+                pc.push_back(list[i]);
                 count++;
             }
         }
@@ -524,11 +524,11 @@ void ListPC::FindbyPrice()
         cout<<"\nMoi nhap gia can tim: "; 
         double price;
         cin>>price; 
-        for (int i = 0; i<b.size();i++)
+        for (int i = 0; i<list.size();i++)
         {
-            if (b[i]->calculatePrice()==price)
+            if (list[i]->calculatePrice()==price)
             {
-                pc.push_back(b[i]);
+                pc.push_back(list[i]);
                 count++;
             }
         }
@@ -541,14 +541,14 @@ void ListPC::FilterbyInfor()
     cout<<"\nNhap thong tin can loc: (Enter->Bo qua)\n";
     a = new PC;
     a->input();
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {   
-        if (check_substring(a->get_id(),b[i]->get_id())==false) continue;
-        if (check_substring(a->get_name(),b[i]->get_name())==false) continue;
-        if (check_substring(a->get_model(),b[i]->get_model())==false) continue;
-        if (check_substring(a->get_operatingSystem(),b[i]->get_operatingSystem())==false) continue;
+        if (check_substring(a->get_id(),list[i]->get_id())==false) continue;
+        if (check_substring(a->get_name(),list[i]->get_name())==false) continue;
+        if (check_substring(a->get_model(),list[i]->get_model())==false) continue;
+        if (check_substring(a->get_operatingSystem(),list[i]->get_operatingSystem())==false) continue;
         cout<<endl; line(112,'_');
-        b[i]->GeneralView();
+        list[i]->GeneralView();
         count++;
     }
     if (count==0) cout<<"\nNOT FOUND";     
@@ -560,10 +560,10 @@ void ListPC::FilterbyPrice()
     cout<<"\nNhap gia thue thap nhat/cao nhat: \n";
     int min; int max;
     cout<<"\nMIN: "; cin>>min; cout<<"MAX: "; cin>>max;
-    for (int i = 0; i<b.size();i++)
+    for (int i = 0; i<list.size();i++)
     {
-        if (b[i]->calculatePrice()<min||b[i]->calculatePrice()>max) continue;
-        pc.push_back(b[i]);
+        if (list[i]->calculatePrice()<min||list[i]->calculatePrice()>max) continue;
+        pc.push_back(list[i]);
     }
     ListPC::GeneralViewList(pc);
 }
